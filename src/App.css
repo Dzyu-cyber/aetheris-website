@@ -1,0 +1,418 @@
+.hero-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: transparent; /* Let the video show through */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-background-video,
+.hero-background-image {
+  position: fixed; /* Stays fixed as you scroll */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 0; /* Behind everything */
+  pointer-events: none;
+  transform: scale(1.05);
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.5rem 5%;
+  position: relative;
+  z-index: 50; /* Increased z-index so it sits above the hero section */
+}
+
+.logo, .nav-spacer {
+  flex: 1;
+}
+
+.nav-spacer {
+  display: block;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Keeps logo on the left */
+  transition: opacity 0.2s ease;
+}
+
+.logo:hover {
+  opacity: 0.7;
+}
+
+.logo-img {
+  height: 48px; /* Optimized height to fit nicely within nav */
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05)); /* Slight ethereal sharpness */
+}
+
+.nav-links {
+  display: flex;
+  gap: 1rem; /* Tighter gap */
+  list-style: none;
+  align-items: center;
+  border: solid var(--color-text);
+  border-width: 1.8px 0; /* Just a teeny bit thinner than 2.5px */
+  border-radius: 30px; /* Curves the ends of the borders inwards */
+  padding: 0.15rem 1rem; /* Tighter padding makes the overall box smaller */
+}
+
+.nav-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0.4rem 1rem; /* Tighter padding */
+  cursor: pointer;
+  border-radius: 100px; /* Oval shape for the glow */
+}
+
+/* The expanding oval background */
+.nav-item::before {
+  content: '';
+  position: absolute;
+  top: 2px;
+  bottom: 2px;
+  left: 4px;
+  right: 4px;
+  border-radius: 100px;
+  background-color: rgba(0, 0, 0, 0.15);
+  transform: scaleX(0) scaleY(0.5); /* Squashed in the middle */
+  transform-origin: center;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 0;
+}
+
+.nav-item:hover::before {
+  transform: scaleX(1) scaleY(1);
+  opacity: 1;
+}
+
+.nav-item a {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600; /* Clinic semibold style */
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text);
+  text-decoration: none;
+  position: relative;
+  z-index: 1; /* Keeps text above the glow */
+  transition: opacity 0.3s ease;
+}
+
+
+.nav-spacer {
+  flex: 1;
+  pointer-events: none;
+}
+
+/* Hero Section layout */
+.hero {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 5%;
+  z-index: 10;
+  margin-top: -38vh; /* Pulled much further upwards as requested */
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 850px;
+  width: 100%;
+  z-index: 10; /* Ensures text is above video */
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 100px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(0, 0, 0, 0.7);
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+/* --- PORTFOLIO SECTION --- */
+.portfolio-section {
+  padding: 3rem 5% 8rem;
+  background: rgba(255, 255, 255, 0.7); /* Frosted glass */
+  backdrop-filter: blur(40px); /* Massive blur for premium ethereal effect */
+  -webkit-backdrop-filter: blur(40px);
+  position: relative;
+  z-index: 20;
+  border-top: 1px solid rgba(255, 255, 255, 0.8); /* Edge highlight */
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.05); /* Subtle shadow over the video */
+}
+
+.section-title {
+  font-size: 4.5rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  margin-bottom: 5rem;
+  text-align: center;
+}
+
+.portfolio-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.portfolio-card {
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+}
+
+.portfolio-card:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.portfolio-image-container {
+  flex: 1.2;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  background-color: #f5f5f5; /* Subtle background for images */
+}
+
+.portfolio-image-container:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+}
+
+.portfolio-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.portfolio-image-container:hover .portfolio-image {
+  transform: scale(1.03);
+}
+
+.portfolio-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+
+.portfolio-image-container:hover .portfolio-overlay {
+  opacity: 1;
+}
+
+.visit-btn {
+  padding: 1rem 2.5rem;
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  border-radius: 100px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transform: translateY(20px);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.portfolio-image-container:hover .visit-btn {
+  transform: translateY(0);
+}
+
+.visit-btn:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.portfolio-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.portfolio-title {
+  font-size: 2.5rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.portfolio-desc {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: rgba(0,0,0,0.6);
+  margin-bottom: 2rem;
+}
+
+.portfolio-features {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.portfolio-features li {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+}
+
+.portfolio-features li::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-text);
+  border-radius: 50%;
+  margin-right: 0.8rem;
+}
+
+@media (max-width: 900px) {
+  .portfolio-card,
+  .portfolio-card:nth-child(even) {
+    flex-direction: column;
+  }
+}
+
+/* --- SCROLL REVEAL ANIMATIONS --- */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-text);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  animation: pulse 2s infinite ease-in-out;
+}
+
+.hero-title {
+  font-size: 5.5rem;
+  line-height: 1.1;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  margin-bottom: 1.5rem;
+}
+
+.hero-title span {
+  display: inline-block;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: rgba(0, 0, 0, 0.6);
+  max-width: 80%;
+  text-align: center;
+}
+
+/* Base Animations */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.5); opacity: 0.5; }
+}
+
+.fade-up {
+  opacity: 0;
+  animation: fadeUp 1s ease forwards;
+}
+
+/* Ambient Grain/Noise */
+.ambient-blur.noise {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.03;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-title {
+    font-size: 4rem;
+  }
+  
+  .nav-links {
+    display: none;
+  }
+  
+  .hero-subtitle {
+    max-width: 100%;
+  }
+
+  .hero {
+    margin-top: -5vh;
+  }
+}
