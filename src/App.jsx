@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { ChevronDown } from 'lucide-react';
 import './App.css';
 import aetherisLogo from './assets/Aetheris_Logo+Name-removebg-preview.png';
 import backgroundVideo from './assets/mp_.mp4';
@@ -112,6 +113,11 @@ function App() {
 
       {/* Ambient Noise / Grain */}
       <div className="ambient-blur noise"></div>
+
+      {/* Scroll Down Arrow */}
+      <a href="#portfolio" className="hero-scroll">
+        <ChevronDown size={32} strokeWidth={1.5} />
+      </a>
     </div>
 
     {/* Portfolio Section */}
