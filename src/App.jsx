@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { ChevronDown, Layout, Code, Smartphone, Search, ShoppingBag, PenTool, ShieldCheck, Zap, Mail, Camera, Briefcase } from 'lucide-react';
+import { ChevronDown, Layout, Code, Smartphone, Search, ShoppingBag, PenTool, ShieldCheck, Zap, Mail, Briefcase } from 'lucide-react';
 import './App.css';
 import aetherisLogo from './assets/Aetheris_Logo+Name-removebg-preview.png';
 import backgroundVideo from './assets/mp_.mp4';
