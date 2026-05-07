@@ -154,6 +154,13 @@ function App() {
           <p className="hero-subtitle fade-up" style={{ animationDelay: '0.4s' }}>
             We design and develop ultra-responsive, high-performance websites that capture your brand's essence.
           </p>
+          {/* Mobile-only nav buttons — live below subtitle */}
+          <div className="mobile-nav-grid">
+            <a href="#portfolio" className="mobile-nav-btn">Portfolio</a>
+            <a href="#services" className="mobile-nav-btn">Services</a>
+            <a href="#about" className="mobile-nav-btn">About</a>
+            <a href="#contact" className="mobile-nav-btn">Contact</a>
+          </div>
         </div>
       </main>
 

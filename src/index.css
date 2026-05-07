@@ -12,6 +12,11 @@
   box-sizing: border-box;
 }
 
+html {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 body {
   background-color: var(--color-bg);
   color: var(--color-text);
@@ -20,6 +25,14 @@ body {
   background-image: none;
   min-height: 100vh;
   overflow-x: hidden;
+  width: 100%;
+}
+
+/* Ensure the React root always fills the viewport */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 h1, h2, h3, h4, h5, h6 {
