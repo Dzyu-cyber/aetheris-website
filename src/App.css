@@ -885,6 +885,11 @@
     border-color: #ffffff;
   }
 
+  /* Center the 5th button (Contact) since it's alone on the last row */
+  .mobile-nav-btn:nth-child(5) {
+    grid-column: span 2;
+  }
+
   /* --- Hero: sits at 48% so it's slightly above center — evenly balanced
      between the logo at top and the arrow at the bottom --- */
   .hero {
