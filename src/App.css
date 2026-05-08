@@ -64,7 +64,7 @@
 
 .nav-links {
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
   /* Tighter gap */
   list-style: none;
   align-items: center;
@@ -81,7 +81,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  padding: 0.4rem 1rem;
+  padding: 0.4rem 0.65rem;
   /* Tighter padding */
   cursor: pointer;
   border-radius: 100px;
@@ -935,6 +935,8 @@
   .section-title {
     font-size: 2.6rem;
     letter-spacing: -0.02em;
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
 
   .section-header {
@@ -1623,5 +1625,607 @@
     flex-direction: column;
     gap: 20px;
     text-align: center;
+  }
+}
+
+/* =====================================================
+   ABOUT — Contact Form + WhatsApp Block
+   White background — matches About section aesthetic
+   ===================================================== */
+.about-contact-row {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 60px;
+  align-items: start;
+  margin-top: 100px;
+  padding-top: 80px;
+  border-top: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+.about-contact-heading {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #000;
+  margin-bottom: 0.6rem;
+  letter-spacing: -0.03em;
+}
+
+.about-contact-subtext {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 2.2rem;
+  line-height: 1.6;
+}
+
+.about-contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.form-icon {
+  position: absolute;
+  left: 16px;
+  color: rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+  z-index: 1;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.form-icon-top {
+  top: 18px;
+  transform: none;
+}
+
+.form-input {
+  width: 100%;
+  padding: 14px 16px 14px 44px;
+  border: 1.5px solid rgba(0, 0, 0, 0.12);
+  border-radius: 12px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  color: #000;
+  background: #fafafa;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  box-sizing: border-box;
+}
+
+.form-input:focus {
+  border-color: #000;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.06);
+}
+
+.form-input::placeholder {
+  color: rgba(0, 0, 0, 0.35);
+}
+
+.form-textarea {
+  resize: none;
+  padding-top: 14px;
+  align-items: flex-start;
+  line-height: 1.6;
+}
+
+.form-submit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 32px;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 100px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  width: fit-content;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.form-submit-btn:hover {
+  background: #222;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* WhatsApp Card */
+.whatsapp-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 18px;
+  padding: 50px 36px;
+  background: #f9f9f9;
+  border: 1.5px solid rgba(0, 0, 0, 0.07);
+  border-radius: 28px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.whatsapp-card:hover {
+  border-color: rgba(0, 0, 0, 0.15);
+  transform: translateY(-6px);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.07);
+}
+
+.whatsapp-icon-wrap {
+  width: 72px;
+  height: 72px;
+  background: #000;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.whatsapp-heading {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #000;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.whatsapp-text {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 260px;
+}
+
+.whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background: #25D366;
+  color: #fff;
+  border-radius: 100px;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.35);
+}
+
+.whatsapp-btn:hover {
+  background: #1ebe5d;
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(37, 211, 102, 0.45);
+}
+
+.whatsapp-note {
+  font-size: 0.78rem;
+  color: #aaa;
+  letter-spacing: 0.05em;
+}
+
+/* =====================================================
+   PRICING SECTION — Black Aesthetic
+   ===================================================== */
+.pricing-section {
+  padding: 160px 80px 120px;
+  background-color: #050505;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.pricing-section::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 50%;
+  height: 60%;
+  background: radial-gradient(circle, rgba(139, 0, 255, 0.08) 0%, transparent 70%);
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+.pricing-section::after {
+  content: '';
+  position: absolute;
+  bottom: -20%;
+  left: -10%;
+  width: 50%;
+  height: 60%;
+  background: radial-gradient(circle, rgba(0, 200, 255, 0.05) 0%, transparent 70%);
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+.pricing-section .section-tag {
+  color: #ffffff;
+  opacity: 0.5;
+}
+
+.pricing-section .section-title {
+  background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0.7) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #ffffff;
+}
+
+.pricing-section .section-subtitle {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 0;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.pricing-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 44px 36px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 32px;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.pricing-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+  transition: 0.8s;
+}
+
+.pricing-card:hover::before {
+  left: 100%;
+}
+
+.pricing-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.18);
+  transform: translateY(-10px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+}
+
+.pricing-card--highlight {
+  background: rgba(255, 255, 255, 0.07) !important;
+  border-color: rgba(255, 255, 255, 0.22) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), inset 0 0 40px rgba(255, 255, 255, 0.02);
+}
+
+.pricing-card--highlight:hover {
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  transform: translateY(-14px);
+}
+
+.pricing-badge {
+  position: absolute;
+  top: 28px;
+  right: 28px;
+  background: #ffffff;
+  color: #000;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  padding: 5px 12px;
+  border-radius: 100px;
+  text-transform: uppercase;
+}
+
+.pricing-card-top {
+  margin-bottom: 32px;
+}
+
+.pricing-plan-name {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 16px;
+}
+
+.pricing-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.pricing-price {
+  font-family: 'Poppins', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.pricing-tagline {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.pricing-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 36px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+}
+
+.pricing-features li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.4;
+}
+
+.pricing-check {
+  color: #ffffff;
+  opacity: 0.9;
+  flex-shrink: 0;
+}
+
+.pricing-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  border-radius: 100px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-top: auto;
+}
+
+.pricing-cta:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.pricing-cta--highlight {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+}
+
+.pricing-cta--highlight:hover {
+  background: rgba(255, 255, 255, 0.88);
+  border-color: rgba(255, 255, 255, 0.88);
+  color: #000;
+}
+
+.pricing-note {
+  text-align: center;
+  margin-top: 60px;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.25);
+  letter-spacing: 0.05em;
+}
+
+/* =====================================================
+   TESTIMONIALS SECTION — White Aesthetic
+   ===================================================== */
+.testimonials-section {
+  padding: 120px 80px;
+  background: rgba(255, 255, 255, 1);
+  position: relative;
+  z-index: 2;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.testimonial-card {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding: 40px 36px;
+  background: #f7f7f7;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 28px;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.08);
+  border-color: rgba(0, 0, 0, 0.12);
+  background: #fff;
+}
+
+.testimonial-stars {
+  display: flex;
+  gap: 4px;
+}
+
+.star-icon {
+  color: #000;
+  fill: #000;
+}
+
+.testimonial-quote {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #333;
+  font-style: italic;
+  flex: 1;
+  margin: 0;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+.testimonial-avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #000;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.testimonial-name {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #000;
+  letter-spacing: 0.02em;
+}
+
+.testimonial-role {
+  display: block;
+  font-size: 0.78rem;
+  color: #888;
+  margin-top: 3px;
+  letter-spacing: 0.02em;
+}
+
+/* =====================================================
+   RESPONSIVE — Pricing + Testimonials + Form
+   ===================================================== */
+@media (max-width: 1024px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 900px) {
+  .pricing-section {
+    padding: 80px 24px;
+  }
+
+  .testimonials-section {
+    padding: 80px 24px;
+  }
+
+  .about-contact-row {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-top: 64px;
+    padding-top: 56px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .pricing-section {
+    padding: 60px 5%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+
+  .pricing-price {
+    font-size: 2.8rem;
+  }
+
+  .testimonials-section {
+    padding: 60px 5%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+
+  .about-contact-row {
+    margin-top: 48px;
+    padding-top: 40px;
+    gap: 32px;
+  }
+
+  .about-contact-heading {
+    font-size: 1.6rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .whatsapp-card {
+    padding: 36px 24px;
   }
 }
