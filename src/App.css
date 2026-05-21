@@ -48,7 +48,8 @@
   align-items: center;
   justify-content: flex-start;
   /* Keeps logo on the left */
-  transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  transform: translateY(-28px); /* Shift only the logo upwards as requested */
 }
 
 .logo:hover {
@@ -130,6 +131,159 @@
 .nav-spacer {
   flex: 1;
   pointer-events: none;
+}
+
+/* Calendly Integration Styles */
+.nav-cta-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.nav-cta-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1.8px solid var(--color-text);
+  border-radius: 100px;
+  color: var(--color-text);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.55rem 1.4rem;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-cta-btn:hover {
+  background: var(--color-text);
+  color: var(--color-bg);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.hero-cta-btn {
+  display: none;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 2rem;
+  background: var(--color-text);
+  color: var(--color-bg);
+  border: none;
+  border-radius: 100px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.9rem 2.2rem;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 20;
+}
+
+.hero-cta-btn:hover {
+  background: #2563eb;
+  color: #fff;
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 15px 35px rgba(37, 99, 235, 0.3);
+}
+
+.hero-cta-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.hero-cta-btn:hover svg {
+  transform: rotate(-10deg) scale(1.1);
+}
+
+.floating-cta-btn {
+  position: fixed;
+  top: 2.2rem;
+  right: 2rem;
+  z-index: 999;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
+  border-radius: 100px;
+  color: #000;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.8rem 1.6rem;
+  cursor: pointer;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: floatFadeIn 1s ease both;
+  animation-delay: 1.5s;
+}
+
+.floating-cta-btn:hover {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.floating-cta-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.floating-cta-btn:hover svg {
+  transform: scale(1.15);
+}
+
+@keyframes floatFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Mobile responsive modifiers for the new buttons */
+@media (max-width: 480px) {
+  .floating-cta-btn {
+    display: none !important;
+  }
+  
+  .hero-cta-btn {
+    display: inline-flex !important;
+    padding: 0.8rem 1.8rem;
+    font-size: 0.85rem;
+    margin-top: 1.4rem;
+    margin-bottom: 0.2rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+}
+
+
+@keyframes floatFadeInMobile {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 15px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
 }
 
 /* Hero Section layout */
@@ -934,7 +1088,7 @@
 
   /* Arrow: near the bottom edge */
   .hero-scroll {
-    bottom: 80px !important;
+    bottom: 40px !important;
     color: #000000 !important;
   }
 
@@ -1095,7 +1249,7 @@
 /* --- HERO SCROLL ARROW --- */
 .hero-scroll {
   position: absolute;
-  bottom: 120px;
+  bottom: 150px;
   /* Moved arrow down as requested */
   left: 50%;
   transform: translateX(-50%);

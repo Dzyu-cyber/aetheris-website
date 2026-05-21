@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ChevronDown, Layout, Code, Smartphone, Search, ShoppingBag, PenTool, ShieldCheck, Zap, Mail, Briefcase, MessageCircle, Check, Star, Send, User, FileText } from 'lucide-react';
+import { ChevronDown, Layout, Code, Smartphone, Search, ShoppingBag, PenTool, ShieldCheck, Zap, Mail, Briefcase, MessageCircle, Check, Star, Send, User, FileText, Calendar } from 'lucide-react';
 import './App.css';
 import aetherisLogo from './assets/Aetheris_Logo+Name-removebg-preview.png';
 import backgroundVideo from './assets/mp_.mp4';
@@ -15,6 +15,15 @@ import founderAvatar from './assets/1758446053888.png';
 function App() {
   const frameRef = useRef(null);
   const [formStatus, setFormStatus] = useState(null);
+
+  const openCalendly = (e) => {
+    e?.preventDefault();
+    if (window.Calendly) {
+      window.Calendly.initPopupWidget({ url: 'https://calendly.com/ddanishhmohd/30min' });
+    } else {
+      window.open('https://calendly.com/ddanishhmohd/30min', '_blank');
+    }
+  };
 
   useEffect(() => {
     const frame = frameRef.current;
@@ -156,6 +165,13 @@ function App() {
           <p className="hero-subtitle fade-up" style={{ animationDelay: '0.4s' }}>
             We design and develop ultra-responsive, high-performance websites that capture your brand's essence.
           </p>
+          <button 
+            onClick={openCalendly} 
+            className="hero-cta-btn fade-up" 
+            style={{ animationDelay: '0.6s' }}
+          >
+            <Calendar size={18} /> Book a Call
+          </button>
           {/* Mobile-only nav buttons — live below subtitle */}
           <div className="mobile-nav-grid">
             <a href="#portfolio" className="mobile-nav-btn">Portfolio</a>
@@ -620,6 +636,11 @@ function App() {
         </div>
       </div>
     </footer>
+    {/* Floating Book a Call Button */}
+    <button onClick={openCalendly} className="floating-cta-btn">
+      <Calendar size={18} />
+      <span>Book a Call</span>
+    </button>
     </>
   );
 }
