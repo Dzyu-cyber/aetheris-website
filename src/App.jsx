@@ -11,7 +11,7 @@ import restaurantImg from './assets/Screenshot 2026-05-07 190351.png';
 import aboutVisionImg from './assets/about_vision.png';
 import aboutArtifactImg from './assets/Gemini_Generated_Image_s914xjs914xjs914.png';
 import founderAvatar from './assets/1758446053888.png';
-import heroPoster from './assets/hero.png';
+import heroPoster from './assets/ChatGPT Image May 3, 2026, 07_54_37 PM(Inverted).png';
 
 function App() {
   const frameRef = useRef(null);
