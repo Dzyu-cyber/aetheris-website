@@ -11,10 +11,12 @@ import restaurantImg from './assets/Screenshot 2026-05-07 190351.png';
 import aboutVisionImg from './assets/about_vision.png';
 import aboutArtifactImg from './assets/Gemini_Generated_Image_s914xjs914xjs914.png';
 import founderAvatar from './assets/1758446053888.png';
+import heroPoster from './assets/hero.png';
 
 function App() {
   const frameRef = useRef(null);
   const [formStatus, setFormStatus] = useState(null);
+  const [videoLoaded, setVideoLoaded] = useState(false);
 
   const openCalendly = (e) => {
     e?.preventDefault();
@@ -129,13 +131,24 @@ function App() {
   return (
     <>
       <div className="hero-container">
+      {/* Fallback Background Image (loads instantly) */}
+      <img 
+        src={heroPoster} 
+        alt="Aetheris Hero Background" 
+        className="hero-background-image"
+        style={{ opacity: videoLoaded ? 0 : 1, transition: 'opacity 1s ease', zIndex: 0 }}
+      />
+
       {/* Background Video */}
       <video 
         autoPlay 
         loop 
         muted 
         playsInline 
+        onPlay={() => setVideoLoaded(true)}
+        onLoadedData={() => setVideoLoaded(true)}
         className="hero-background-video"
+        style={{ opacity: videoLoaded ? 1 : 0, transition: 'opacity 1s ease', zIndex: 0 }}
       >
         <source src={backgroundVideo} type="video/mp4" />
       </video>
